@@ -11,9 +11,9 @@ def check_user_registered_in_system(url, username):
     usernames = json_data.get("payload")
     status = json_data.get("status")
     if(username in usernames):
-        print usernames
+        print(usernames)
     else:
-        print "user not registered in the system"
+        print("user not registered in the system")
     return bool(username in usernames and status == "SUCCESS"), usernames
 """This function autheticates the user with username and password.It will return "True" and the token value if the user is authenticated successfully.
  Else it will return "False" and the token value as "Invalid" """
@@ -41,4 +41,4 @@ def update_user_info(url, token, payload):
     payload = json.dumps(payload)
     headers = {'Content-Type': 'application/json', 'Token': token}
     response = requests.put(url, data=payload, headers=headers)
-    print response.text
+    print(response.text)
